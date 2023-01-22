@@ -61,11 +61,12 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
+        boolean b = false;
         for (int i = 0; i < size; i++) {
             if (array[i] == value)
-                return true;
+                b =  true;
         }
-        return false;
+        return b;
     }
 
     public int getIndexByValue(int value) {
