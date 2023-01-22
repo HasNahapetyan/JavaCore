@@ -63,8 +63,10 @@ public class DynamicArray {
     public boolean exists(int value) {
         boolean b = false;
         for (int i = 0; i < size; i++) {
-            if (array[i] == value)
-                b =  true;
+            if (array[i] == value) {
+                b = true;
+                break;
+            }
         }
         return b;
     }
