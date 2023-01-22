@@ -55,14 +55,15 @@ public class DynamicArray {
             }
             array[index] = value;
             size++;
-        }else{
-            System.out.println("add2: no such index");
+            return;
         }
+        System.out.println("add2: no such index");
     }
 
     public boolean exists(int value) {
         for (int i = 0; i < size; i++) {
-            if (array[i] == value) return true;
+            if (array[i] == value)
+                return true;
         }
         return false;
     }
@@ -71,7 +72,6 @@ public class DynamicArray {
         for (int i = 0; i < size; i++) {
             if (array[i] == value) return i;
         }
-
         return -1;
     }
 }
