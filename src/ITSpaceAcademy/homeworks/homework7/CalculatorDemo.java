@@ -1,4 +1,4 @@
-package ITSpaceAcademy.homework.homework7;
+package ITSpaceAcademy.homeworks.homework7;
 
 public class CalculatorDemo {
     public static void main(String[] args) {
