@@ -42,22 +42,24 @@ public class DynamicArray {
     public void set(int index, int value) {
         if(index>=0 && index < size) {
             array[index] = value;
+            return;
         }
+        System.err.println("set: index is out of bounds");
     }
 
     public void add(int index, int value) {
-        if (index >= 0 && index < size) {
-            if(size == array.length){
-                extend();
-            }
-            for (int i = size-1; i >= index; i--) {
-                array[i] = array[i - 1];
-            }
-            array[index] = value;
-            size++;
+        if (index < 0 && index >= size) {
+            System.out.println("add2: no such index");
             return;
         }
-        System.out.println("add2: no such index");
+        if(size == array.length){
+            extend();
+        }
+        for (int i = size-1; i >= index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = value;
+        size++;
     }
 
     public boolean exists(int value) {
@@ -73,7 +75,9 @@ public class DynamicArray {
 
     public int getIndexByValue(int value) {
         for (int i = 0; i < size; i++) {
-            if (array[i] == value) return i;
+            if (array[i] == value) {
+                return i;
+            }
         }
         return -1;
     }
