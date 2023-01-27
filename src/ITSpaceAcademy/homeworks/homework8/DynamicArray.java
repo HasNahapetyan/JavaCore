@@ -31,24 +31,25 @@ public class DynamicArray {
     }
 
     public void deleteByIndex(int index) {
-        if(index>=0 && index < size) {
-            for (int i = index; i < size-1; i++) {
-                array[i] = array[i + 1];
-            }
-            size--;
+        if(index<0 || index > size-1) {
+            System.out.println("deleteByIndex: wrong index");
+            return;
         }
+        for (int i = index; i < size-1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
     }
 
     public void set(int index, int value) {
-        if(index>=0 && index < size) {
-            array[index] = value;
-            return;
+        if(index<0 || index > size-1) {
+            System.err.println("set: wrong index");
         }
-        System.err.println("set: index is out of bounds");
+        array[index] = value;
     }
 
     public void add(int index, int value) {
-        if (index < 0 && index >= size) {
+        if (index < 0 || index > size-1) {
             System.out.println("add2: no such index");
             return;
         }

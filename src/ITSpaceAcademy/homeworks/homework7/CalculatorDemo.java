@@ -9,5 +9,6 @@ public class CalculatorDemo {
         System.out.println(c.minus(a1,a2));
         System.out.println(c.mult(a1,a2));
         System.out.println(c.div(a1,a2));
+
     }
 }
