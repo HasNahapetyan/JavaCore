@@ -1,7 +1,5 @@
 package ITSpaceAcademy.homeworks.braceCheck;
 
-
-
 public class BraceChecker {
     private String string;
 
@@ -21,9 +19,11 @@ public class BraceChecker {
             switch (string.charAt(i)){
                 case ')':
                     if(stack.isEmpty()){
+                        System.err.println("Error at " + i + " index Closed ) but not open.");
                         flag = false;
                     }else{
                         if(stack.peek() != '('){
+                            System.err.println("Error at " + i + " index Closed ) but not open.");
                             flag = false;
                         }else {
                             stack.pop();
@@ -32,21 +32,24 @@ public class BraceChecker {
                     break;
                 case ']':
                     if(stack.isEmpty()){
+                        System.err.println("Error at " + i + " index Closed ] but not open.");
                         flag = false;
                     }else{
                         if(stack.peek() != '['){
+                            System.err.println("Error at " + i + " index Closed ] but not open.");
                             flag = false;
                         }else {
                             stack.pop();
-
                         }
                     }
                     break;
                 case '}':
                     if(stack.isEmpty()){
+                        System.err.println("Error at " + i + " index Closed } but not open.");
                         flag = false;
                     }else{
                         if(stack.peek() != '{'){
+                            System.err.println("Error at " + i + " index Closed } but not open.");
                             flag = false;
                         }else{
                             stack.pop();
@@ -57,6 +60,10 @@ public class BraceChecker {
         }
         if(!stack.isEmpty()){
             flag = false;
+            while (!stack.isEmpty()){
+                System.err.println("Error: Opened " + stack.peek() + " but not closed.");
+                stack.pop();
+            }
         }
         return flag;
     }
