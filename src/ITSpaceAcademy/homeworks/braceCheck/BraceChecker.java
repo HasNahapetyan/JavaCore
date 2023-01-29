@@ -2,13 +2,13 @@ package ITSpaceAcademy.homeworks.braceCheck;
 
 public class BraceChecker {
     private String string;
+    private CharStack stack = new CharStack();
 
     public BraceChecker(String string) {
         this.string = string;
     }
 
     public boolean check() {
-        CharStack stack = new CharStack();
         boolean flag = true;
         for (int i = 0; i < string.length(); i++) {
             if(string.charAt(i) == '(' || string.charAt(i) == '[' || string.charAt(i) == '{'){
