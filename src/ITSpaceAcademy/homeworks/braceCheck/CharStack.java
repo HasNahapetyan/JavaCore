@@ -10,12 +10,11 @@ public class CharStack {
     }
 
     void push(char item){
-        if(tos == 9){
+        if(tos == size-1){
             extend();
         }
-        else {
-            arr[++tos] = item;
-        }
+        arr[++tos] = item;
+
     }
     private void extend() {
         char[] array1 = new char[size+10];
@@ -23,6 +22,7 @@ public class CharStack {
             array1[i] = arr[i];
         }
         arr = array1;
+        size += 10;
     }
     char pop(){
         if(tos<0){
