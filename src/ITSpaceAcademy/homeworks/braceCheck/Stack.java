@@ -1,11 +1,11 @@
 package ITSpaceAcademy.homeworks.braceCheck;
 
-public class CharStack {
-    private char arr[] = new char [10];
+public class Stack {
+    private int arr[] = new int [10];
     private int size = 10;
     private int tos;
 
-    CharStack(){
+    Stack(){
         tos = -1;
     }
 
@@ -17,23 +17,23 @@ public class CharStack {
 
     }
     private void extend() {
-        char[] array1 = new char[size+10];
+        int[] array1 = new int[size+10];
         for (int i = 0; i < size; i++) {
             array1[i] = arr[i];
         }
         arr = array1;
         size += 10;
     }
-    char pop(){
+    int pop(){
         if(tos<0){
-            System.err.println("CharStack underflow,");
+            System.err.println("Stack underflow,");
             return 0;
         }
         return arr[tos--];
     }
-    char peek(){
+    int peek(){
         if(tos<0){
-            System.err.println("CharStack underflow,");
+            System.err.println("Stack underflow,");
             return 0;
         }
         return arr[tos];
