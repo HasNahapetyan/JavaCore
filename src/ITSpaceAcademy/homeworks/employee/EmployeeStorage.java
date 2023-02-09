@@ -1,16 +1,17 @@
 package ITSpaceAcademy.homeworks.employee;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
     private int size = 0;
 
-    public void add(Employee value) {
+    public void add(Employee employee) {
         if(size == employees.length){
             extend();
         }
-        employees[size] = value;
+        employees[size] = employee;
         size++;
     }
 
@@ -101,5 +102,15 @@ public class EmployeeStorage {
             }
         }
         System.out.println("wrong ID");
+    }
+
+    public boolean idIsUnique(String id) {
+        for (int i = 0; i < size; i++) {
+            if(employees[i].getCompany().equals(id)){
+                System.out.println("this ID already exists");
+                return false;
+            }
+        }
+        return true;
     }
 }

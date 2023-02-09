@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Employee {
     private String name;
     private String surname;
-    private String employeeID;
+    private String id;
     private String salary;
     private String company;
     private String position;
@@ -16,7 +16,7 @@ public class Employee {
     public Employee(String name, String surname, String emplyeeID, String salary, String company, String position) {
         this.name = name;
         this.surname = surname;
-        this.employeeID = emplyeeID;
+        this.id = emplyeeID;
         this.salary = salary;
         this.company = company;
         this.position = position;
@@ -39,11 +39,11 @@ public class Employee {
     }
 
     public String getEmplyeeID() {
-        return employeeID;
+        return id;
     }
 
-    public void setEmployeeID(String emplyeeID) {
-        this.employeeID = emplyeeID;
+    public void setId(String emplyeeID) {
+        this.id = emplyeeID;
     }
 
     public String getSalary() {
@@ -75,12 +75,12 @@ public class Employee {
         if (this == o) return true;
         if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(getName(), employee.getName()) && Objects.equals(getSurname(), employee.getSurname()) && Objects.equals(employeeID, employee.employeeID) && Objects.equals(getSalary(), employee.getSalary()) && Objects.equals(getCompany(), employee.getCompany()) && Objects.equals(getPosition(), employee.getPosition());
+        return Objects.equals(getName(), employee.getName()) && Objects.equals(getSurname(), employee.getSurname()) && Objects.equals(id, employee.id) && Objects.equals(getSalary(), employee.getSalary()) && Objects.equals(getCompany(), employee.getCompany()) && Objects.equals(getPosition(), employee.getPosition());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSurname(), employeeID, getSalary(), getCompany(), getPosition());
+        return Objects.hash(getName(), getSurname(), id, getSalary(), getCompany(), getPosition());
     }
 
     @Override
@@ -88,10 +88,12 @@ public class Employee {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", emplyeeID='" + employeeID + '\'' +
+                ", emplyeeID='" + id + '\'' +
                 ", salary=" + salary + '\'' +
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 '}';
     }
+
+
 }
