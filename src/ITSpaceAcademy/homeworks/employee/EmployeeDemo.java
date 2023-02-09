@@ -55,12 +55,12 @@ public class EmployeeDemo {
                     storage.print();
                     break;
                 case "3":
-                    System.out.println("enter ID");
+                    System.out.println("Please input ID");
                     String ID = sc.nextLine();
                     storage.findEmployeeByID(ID);
                     break;
                 case "4":
-                    System.out.println("enter company");
+                    System.out.println("Please input company");
                     String company = sc.nextLine();
                     storage.findEmployeesByCompany(company);
                     break;
