@@ -52,14 +52,14 @@ public class EmployeeDemo {
 
     private static void activateEmployeeById() {
         System.out.println("Please input id");
-        String empId = sc.next();
-        storage.activateEmployeeById(empId);
+        String id = sc.next();
+        storage.activateEmployeeById(id);
     }
 
     private static void inactiveEmployeeById() {
         System.out.println("Please input id");
-        String emplId = sc.next();
-        storage.inactiveEmployeeById(emplId);
+        String id = sc.next();
+        storage.inactiveEmployeeById(id);
     }
 
     private static void changeEmployeePositionById() {
