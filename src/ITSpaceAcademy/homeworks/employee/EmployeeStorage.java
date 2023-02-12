@@ -17,9 +17,7 @@ public class EmployeeStorage {
 
     private void extend() {
         Employee[] array1 = new Employee[size+10];
-        for (int i = 0; i < size; i++) {
-            array1[i] = employees[i];
-        }
+        if (size >= 0) System.arraycopy(employees, 0, array1, 0, size);
         employees = array1;
     }
 
@@ -38,9 +36,7 @@ public class EmployeeStorage {
             System.out.println("deleteByIndex: wrong index");
             return;
         }
-        for (int i = index; i < size-1; i++) {
-            employees[i] = employees[i + 1];
-        }
+        if (size - 1 - index >= 0) System.arraycopy(employees, index + 1, employees, index, size - 1 - index);
         size--;
     }
 
@@ -59,9 +55,7 @@ public class EmployeeStorage {
         if(size == employees.length){
             extend();
         }
-        for (int i = size-1; i >= index; i--) {
-            employees[i] = employees[i - 1];
-        }
+        if (size - index >= 0) System.arraycopy(employees, index - 1, employees, index, size - index);
         employees[index] = value;
         size++;
     }
