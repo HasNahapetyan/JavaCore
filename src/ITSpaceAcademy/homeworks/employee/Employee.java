@@ -6,20 +6,31 @@ public class Employee {
     private String name;
     private String surname;
     private String id;
-    private String salary;
+    private Double salary;
     private String company;
     private String position;
+    boolean active;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
 
     public Employee() {
     }
 
-    public Employee(String name, String surname, String emplyeeID, String salary, String company, String position) {
+    public Employee(String name, String surname, String id, Double salary, String company, String position) {
         this.name = name;
         this.surname = surname;
-        this.id = emplyeeID;
+        this.id = id;
         this.salary = salary;
         this.company = company;
         this.position = position;
+        active = true;
     }
 
     public String getName() {
@@ -38,19 +49,19 @@ public class Employee {
         this.surname = surname;
     }
 
-    public String getEmplyeeID() {
+    public String getId() {
         return id;
     }
 
-    public void setId(String emplyeeID) {
-        this.id = emplyeeID;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -75,12 +86,12 @@ public class Employee {
         if (this == o) return true;
         if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(getName(), employee.getName()) && Objects.equals(getSurname(), employee.getSurname()) && Objects.equals(id, employee.id) && Objects.equals(getSalary(), employee.getSalary()) && Objects.equals(getCompany(), employee.getCompany()) && Objects.equals(getPosition(), employee.getPosition());
+        return isActive() == employee.isActive() && Objects.equals(getName(), employee.getName()) && Objects.equals(getSurname(), employee.getSurname()) && Objects.equals(getId(), employee.getId()) && Objects.equals(getSalary(), employee.getSalary()) && Objects.equals(getCompany(), employee.getCompany()) && Objects.equals(getPosition(), employee.getPosition());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSurname(), id, getSalary(), getCompany(), getPosition());
+        return Objects.hash(getName(), getSurname(), getId(), getSalary(), getCompany(), getPosition(), isActive());
     }
 
     @Override
@@ -88,12 +99,11 @@ public class Employee {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", emplyeeID='" + id + '\'' +
-                ", salary=" + salary + '\'' +
+                ", id='" + id + '\'' +
+                ", salary=" + salary +
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
+                ", active=" + active +
                 '}';
     }
-
-
 }

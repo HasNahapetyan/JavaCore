@@ -86,31 +86,68 @@ public class EmployeeStorage {
         return -1;
     }
 
-    public void findEmployeesByCompany(String company) {
+    public void searchEmployeesByCompany(String company) {
         for (int i = 0; i < size; i++) {
-            if(employees[i].getCompany().equals(company)){
-                System.out.println(employees[i]);
+            Employee employee = employees[i];
+            if(employee.getCompany().equals(company)){
+                System.out.println(employee);
             }
         }
     }
 
-    public void findEmployeeByID(String id) {
+    public Employee getEmployeeByID(String id) {
         for (int i = 0; i < size; i++) {
-            if(employees[i].getCompany().equals(id)){
-                System.out.println(employees[i]);
-                return;
+            Employee employee = employees[i];
+            if(employee.getCompany().equals(id)){
+                return employee;
             }
         }
-        System.out.println("wrong ID");
+        return null;
     }
 
-    public boolean idIsUnique(String id) {
+    public void searchEmployeeBySalaryRange(Double left, Double rught) {
         for (int i = 0; i < size; i++) {
-            if(employees[i].getCompany().equals(id)){
-                System.out.println("this ID already exists");
-                return false;
+            Employee employee = employees[i];
+            if(employee.getSalary() >= left && employee.getSalary() <= rught){
+                System.out.println(employee);
             }
         }
-        return true;
+    }
+
+    public String changeEmployeePositionById(String id) {
+        Employee employee = getEmployeeByID(id);
+        if (employee == null) {
+            System.out.println("Employee with " + id + " id does not exist");
+            return null;
+        }else {
+            return employee.getPosition();
+        }
+    }
+
+    public void printOnlyActiveEmployees() {
+        for (int i = 0; i < size; i++) {
+            Employee employee = employees[i];
+            if(employee.isActive()){
+                System.out.println(employee);
+            }
+        }
+    }
+
+    public void inactiveEmployeeById(String id) {
+        Employee employee = getEmployeeByID(id);
+        if (employee == null) {
+            System.out.println("Employee with " + id + " id does not exist");
+        }else {
+            employee.setActive(false);
+        }
+    }
+
+    public void activateEmployeeById(String id) {
+        Employee employee = getEmployeeByID(id);
+        if (employee == null) {
+            System.out.println("Employee with " + id + " id does not exist");
+        }else {
+            employee.setActive(true);
+        }
     }
 }
