@@ -30,20 +30,12 @@ public class EmployeeDemo {
                 case "1" -> addEmployee();
                 case "2" -> storage.print();
                 case "3" -> getById();
-                case "4" -> {
-                    searchEmployeeByCompanyName();
-                }
+                case "4" -> searchEmployeeByCompanyName();
                 case "5" -> searchEmployeeBySalaryRange();
-                case "6" -> {
-                    changeEmployeePositionById();
-                }
+                case "6" -> changeEmployeePositionById();
                 case "7" -> storage.printOnlyActiveEmployees();
-                case "8" -> {
-                    inactiveEmployeeById();
-                }
-                case "9" -> {
-                    activateEmployeeById();
-                }
+                case "8" -> inactiveEmployeeById();
+                case "9" -> activateEmployeeById();
                 default -> System.out.println("wrong command, please try again");
             }
         }
