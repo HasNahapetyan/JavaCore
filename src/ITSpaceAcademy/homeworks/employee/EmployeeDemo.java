@@ -31,26 +31,18 @@ public class EmployeeDemo {
                 case "2" -> storage.print();
                 case "3" -> getById();
                 case "4" -> {
-                    System.out.println("Please input company");
-                    String company = sc.nextLine();
-                    storage.searchEmployeesByCompany(company);
+                    searchEmployeeByCompanyName();
                 }
                 case "5" -> searchEmployeeBySalaryRange();
                 case "6" -> {
-                    System.out.println("Please input id");
-                    String id = sc.next();
-                    System.out.println(storage.changeEmployeePositionById(id));
+                    changeEmployeePositionById();
                 }
                 case "7" -> storage.printOnlyActiveEmployees();
                 case "8" -> {
-                    System.out.println("Please input id");
-                    String emplId = sc.next();
-                    storage.inactiveEmployeeById(emplId);
+                    inactiveEmployeeById();
                 }
                 case "9" -> {
-                    System.out.println("Please input id");
-                    String empId = sc.next();
-                    storage.activateEmployeeById(empId);
+                    activateEmployeeById();
                 }
                 default -> System.out.println("wrong command, please try again");
             }
@@ -58,11 +50,37 @@ public class EmployeeDemo {
 
     }
 
+    private static void activateEmployeeById() {
+        System.out.println("Please input id");
+        String empId = sc.next();
+        storage.activateEmployeeById(empId);
+    }
+
+    private static void inactiveEmployeeById() {
+        System.out.println("Please input id");
+        String emplId = sc.next();
+        storage.inactiveEmployeeById(emplId);
+    }
+
+    private static void changeEmployeePositionById() {
+        System.out.println("Please input id");
+        String id = sc.next();
+        System.out.println("Please input new position");
+        String position = sc.nextLine();
+        System.out.println(storage.changeEmployeePositionById(id, position));
+    }
+
+    private static void searchEmployeeByCompanyName() {
+        System.out.println("Please input company");
+        String company = sc.nextLine();
+        storage.searchEmployeesByCompany(company);
+    }
+
     private static void searchEmployeeBySalaryRange() {
         System.out.println("Please input salary range");
-        Double left = Double.parseDouble(sc.next());
-        Double rught = Double.parseDouble(sc.next());
-        storage.searchEmployeeBySalaryRange(left,rught);
+        Double min = Double.parseDouble(sc.next());
+        Double max = Double.parseDouble(sc.next());
+        storage.searchEmployeeBySalaryRange(min,max);
     }
 
     private static void getById() {

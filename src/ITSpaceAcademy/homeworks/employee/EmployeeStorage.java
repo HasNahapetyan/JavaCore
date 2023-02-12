@@ -99,22 +99,23 @@ public class EmployeeStorage {
         return null;
     }
 
-    public void searchEmployeeBySalaryRange(Double left, Double rught) {
+    public void searchEmployeeBySalaryRange(Double min, Double max) {
         for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            if(employee.getSalary() >= left && employee.getSalary() <= rught){
-                System.out.println(employee);
+            Double employeeSalary = employees[i].getSalary();
+            if(employeeSalary >= min && employeeSalary <= max){
+                System.out.println(employeeSalary);
             }
         }
     }
 
-    public String changeEmployeePositionById(String id) {
+    public Employee changeEmployeePositionById(String id,String position) {
         Employee employee = getEmployeeByID(id);
         if (employee == null) {
             System.out.println("Employee with " + id + " id does not exist");
             return null;
         }else {
-            return employee.getPosition();
+            employee.setPosition(position);
+            return employee;
         }
     }
 
