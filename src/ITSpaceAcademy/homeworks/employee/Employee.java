@@ -9,7 +9,7 @@ public class Employee {
     private Double salary;
     private String company;
     private String position;
-    boolean active;
+    boolean active = true;
 
     public boolean isActive() {
         return active;
@@ -30,7 +30,6 @@ public class Employee {
         this.salary = salary;
         this.company = company;
         this.position = position;
-        active = true;
     }
 
     public String getName() {

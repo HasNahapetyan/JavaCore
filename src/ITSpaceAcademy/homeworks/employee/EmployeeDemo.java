@@ -26,17 +26,38 @@ public class EmployeeDemo {
             String command = sc.nextLine();
 
             switch (command) {
-                case "0" -> isRun = false;
-                case "1" -> addEmployee();
-                case "2" -> storage.print();
-                case "3" -> getById();
-                case "4" -> searchEmployeeByCompanyName();
-                case "5" -> searchEmployeeBySalaryRange();
-                case "6" -> changeEmployeePositionById();
-                case "7" -> storage.printOnlyActiveEmployees();
-                case "8" -> inactiveEmployeeById();
-                case "9" -> activateEmployeeById();
-                default -> System.out.println("wrong command, please try again");
+                case "0" :
+                    isRun = false;
+                    break;
+                case "1" :
+                    addEmployee();
+                    break;
+                case "2" :
+                    storage.print();
+                    break;
+                case "3" :
+                    getById();
+                    break;
+                case "4" :
+                    searchEmployeeByCompanyName();
+                    break;
+                case "5" :
+                    searchEmployeeBySalaryRange();
+                    break;
+                case "6" :
+                    changeEmployeePositionById();
+                    break;
+                case "7" :
+                    storage.printOnlyActiveEmployees();
+                    break;
+                case "8" :
+                    inactiveEmployeeById();
+                    break;
+                case "9" :
+                    activateEmployeeById();
+                    break;
+                default :
+                    System.out.println("wrong command, please try again");
             }
         }
 
