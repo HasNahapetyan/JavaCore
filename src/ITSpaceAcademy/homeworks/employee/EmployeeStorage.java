@@ -1,5 +1,6 @@
 package ITSpaceAcademy.homeworks.employee;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -108,17 +109,6 @@ public class EmployeeStorage {
         }
     }
 
-    public Employee changeEmployeePositionById(String id,String position) {
-        Employee employee = getEmployeeByID(id);
-        if (employee == null) {
-            System.out.println("Employee with " + id + " id does not exist");
-            return null;
-        }else {
-            employee.setPosition(position);
-            return employee;
-        }
-    }
-
     public void printOnlyActiveEmployees() {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -137,12 +127,4 @@ public class EmployeeStorage {
         }
     }
 
-    public void activateEmployeeById(String id) {
-        Employee employee = getEmployeeByID(id);
-        if (employee == null) {
-            System.out.println("Employee with " + id + " id does not exist");
-        }else {
-            employee.setActive(true);
-        }
-    }
 }

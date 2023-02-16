@@ -1,5 +1,8 @@
 package ITSpaceAcademy.homeworks.employee;
 
+import java.text.FieldPosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class Employee {
@@ -9,7 +12,9 @@ public class Employee {
     private Double salary;
     private String company;
     private String position;
-    boolean active = true;
+    private boolean active = true;
+    private Date registerDate;
+    private Date dateOfBirthday;
 
     public boolean isActive() {
         return active;
@@ -23,13 +28,31 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String surname, String id, Double salary, String company, String position) {
+    public Employee(String name, String surname, String id, Double salary, String company, String position,Date dateOfBirthday ) {
         this.name = name;
         this.surname = surname;
         this.id = id;
         this.salary = salary;
         this.company = company;
         this.position = position;
+        this.registerDate = new Date();
+        this.dateOfBirthday = dateOfBirthday;
+    }
+
+    public Date getRegisterDate() {
+        return registerDate;
+    }
+
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
+    }
+
+    public Date getDateOfBirthday() {
+        return dateOfBirthday;
+    }
+
+    public void setDateOfBirthday(Date dateOfBirthday) {
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public String getName() {
@@ -83,13 +106,14 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee employee)) return false;
-        return isActive() == employee.isActive() && Objects.equals(getName(), employee.getName()) && Objects.equals(getSurname(), employee.getSurname()) && Objects.equals(getId(), employee.getId()) && Objects.equals(getSalary(), employee.getSalary()) && Objects.equals(getCompany(), employee.getCompany()) && Objects.equals(getPosition(), employee.getPosition());
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return isActive() == employee.isActive() && Objects.equals(getName(), employee.getName()) && Objects.equals(getSurname(), employee.getSurname()) && Objects.equals(getId(), employee.getId()) && Objects.equals(getSalary(), employee.getSalary()) && Objects.equals(getCompany(), employee.getCompany()) && Objects.equals(getPosition(), employee.getPosition()) && Objects.equals(getRegisterDate(), employee.getRegisterDate()) && Objects.equals(getDateOfBirthday(), employee.getDateOfBirthday());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSurname(), getId(), getSalary(), getCompany(), getPosition(), isActive());
+        return Objects.hash(getName(), getSurname(), getId(), getSalary(), getCompany(), getPosition(), isActive(), getRegisterDate(), getDateOfBirthday());
     }
 
     @Override
@@ -102,6 +126,8 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", active=" + active +
+                ", registerDate=" + registerDate +
+                ", dateOfBirthday=" + dateOfBirthday +
                 '}';
     }
 }
