@@ -8,15 +8,16 @@ public class EmployeeDemo {
 
     private static final EmployeeStorage storage = new EmployeeStorage();
     private static final Scanner sc = new Scanner(System.in);
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     public static void main(String[] args) throws ParseException {
 
         storage.add(new Employee("Name1","Surname1", "a001", 100d, "company","junior",
-                new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2023")));
+                sdf.parse("01-01-2023")));
         storage.add(new Employee("Name2","Surname2", "a001", 1000d, "company","mid",
-                new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2023")));
+                sdf.parse("27-10-2000")));
         storage.add(new Employee("Name3","Surname3", "a001", 10000d, "company","senior",
-                new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2023")));
+                sdf.parse("21-05-2009")));
 
 
         boolean isRun = true;
@@ -144,7 +145,7 @@ public class EmployeeDemo {
         Employee employeeById = storage.getEmployeeByID(id);
         if (employeeById == null) {
             Employee employee = new Employee(employeeData[0],employeeData[1],id,Double.parseDouble(employeeData[3]),
-                    employeeData[4],employeeData[5],new SimpleDateFormat("dd-MM-yyyy").parse(employeeData[6]));
+                    employeeData[4],employeeData[5],sdf.parse(employeeData[6]));
             storage.add(employee);
         }else {
             System.out.println("Employee with " + id + " id already exists");
