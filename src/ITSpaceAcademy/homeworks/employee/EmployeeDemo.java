@@ -33,7 +33,6 @@ public class EmployeeDemo implements Commands {
 
 
         boolean isRun = true;
-
         while(isRun){
             Commands.printCommands();
 
@@ -86,7 +85,7 @@ public class EmployeeDemo implements Commands {
 
 
     private static void addCompany() {
-        System.out.println("Please input id, name, address, phonNumber");
+        System.out.println("Please input id, name, address, phoneNumber");
         String companyDataStr = sc.nextLine();
         String[] companyData = companyDataStr.split(",");
         String companyId = companyData[0];
