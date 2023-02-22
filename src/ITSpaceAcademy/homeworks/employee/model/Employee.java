@@ -1,7 +1,7 @@
-package ITSpaceAcademy.homeworks.employee;
+package ITSpaceAcademy.homeworks.employee.model;
 
-import java.text.FieldPosition;
-import java.text.SimpleDateFormat;
+import ITSpaceAcademy.homeworks.employee.util.DateUtil;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,11 +10,28 @@ public class Employee {
     private String surname;
     private String id;
     private Double salary;
-    private String company;
+    private Company company;
     private String position;
     private boolean active = true;
     private Date registerDate;
     private Date dateOfBirthday;
+
+
+
+    public Employee() {
+    }
+
+    public Employee(String name, String surname, String id, Double salary, Company company,
+                    String position, Date registerDate,Date dateOfBirthday ) {
+        this.name = name;
+        this.surname = surname;
+        this.id = id;
+        this.salary = salary;
+        this.company = company;
+        this.position = position;
+        this.registerDate = registerDate;
+        this.dateOfBirthday = dateOfBirthday;
+    }
 
     public boolean isActive() {
         return active;
@@ -22,21 +39,6 @@ public class Employee {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-
-    public Employee() {
-    }
-
-    public Employee(String name, String surname, String id, Double salary, String company, String position,Date dateOfBirthday ) {
-        this.name = name;
-        this.surname = surname;
-        this.id = id;
-        this.salary = salary;
-        this.company = company;
-        this.position = position;
-        this.registerDate = new Date();
-        this.dateOfBirthday = dateOfBirthday;
     }
 
     public Date getRegisterDate() {
@@ -87,11 +89,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
@@ -126,8 +128,8 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", active=" + active +
-                ", registerDate=" + registerDate +
-                ", dateOfBirthday=" + dateOfBirthday +
+                ", registerDate=" + DateUtil.dateToString(registerDate) +
+                ", dateOfBirthday=" + DateUtil.dateToString(dateOfBirthday) +
                 '}';
     }
 }

@@ -1,8 +1,6 @@
-package ITSpaceAcademy.homeworks.employee;
+package ITSpaceAcademy.homeworks.employee.storage;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
+import ITSpaceAcademy.homeworks.employee.model.Employee;
 
 public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
@@ -22,63 +20,10 @@ public class EmployeeStorage {
         employees = array1;
     }
 
-    public Employee getByIndex(int index) {
-        return (index>=0 && index<size) ? employees[index] : null;
-    }
-
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.print(employees[i] + " ");
+            System.out.println(employees[i] + " ");
         }
-    }
-
-    public void deleteByIndex(int index) {
-        if(index<0 || index > size-1) {
-            System.out.println("deleteByIndex: wrong index");
-            return;
-        }
-        if (size - 1 - index >= 0) System.arraycopy(employees, index + 1, employees, index, size - 1 - index);
-        size--;
-    }
-
-    public void set(int index, Employee value) {
-        if(index<0 || index > size-1) {
-            System.err.println("set: wrong index");
-        }
-        employees[index] = value;
-    }
-
-    public void add(int index, Employee value) {
-        if (index < 0 || index > size-1) {
-            System.out.println("add2: no such index");
-            return;
-        }
-        if(size == employees.length){
-            extend();
-        }
-        if (size - index >= 0) System.arraycopy(employees, index - 1, employees, index, size - index);
-        employees[index] = value;
-        size++;
-    }
-
-    public boolean exists(Employee value) {
-        boolean b = false;
-        for (int i = 0; i < size; i++) {
-            if (employees[i] == value) {
-                b = true;
-                break;
-            }
-        }
-        return b;
-    }
-
-    public int getIndexByValue(Employee value) {
-        for (int i = 0; i < size; i++) {
-            if (employees[i] == value) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     public void searchEmployeesByCompany(String company) {
