@@ -188,7 +188,7 @@ public class medicalCenterDemo implements Commands, CommandsToChangeDoctor{
             Date timeDate = DateUtil.stringToTimeDate(time);
             boolean isBusy = patientsStorage.dayTimeIsBusy(doctorById, dayDate, timeDate);
             if(isBusy){
-                System.out.println(day + time + " time is busy with" +  doctorById + " doctor");
+                System.out.println(day + " " + time + " time is busy with " +  doctorById + " doctor");
             }else{
                 patientsStorage.add(new Patient(patientStrArr[0], patientStrArr[1],patientStrArr[2], patientStrArr[3],
                         doctorById ,dayDate, timeDate));
