@@ -3,6 +3,8 @@ package ITSpaceAcademy.homeworks.medicalCenter.storage;
 import ITSpaceAcademy.homeworks.employee.model.Company;
 import ITSpaceAcademy.homeworks.medicalCenter.model.Doctor;
 
+import java.util.Objects;
+
 public class DoctorsStorage {
 
     private Doctor[] doctors = new Doctor[10];
@@ -32,4 +34,33 @@ public class DoctorsStorage {
         }
     }
 
+    public Doctor getDoctorById(String id){
+        for (int i = 0; i < size; i++) {
+            Doctor doctor = doctors[i];
+            if(doctor.getId().equals(id)){
+                return doctor;
+            }
+        }
+        return null;
+    }
+
+    public void printDoctorsByProfession(String profession) {
+        for (int i = 0; i < size; i++) {
+            Doctor doctor = doctors[i];
+            if(doctor.getProfession() == profession){
+                System.out.println(doctor);
+            }
+        }
+    }
+
+    public void deleteDoctor(Doctor doctorToDelete) {
+        for (int i = 0; i < size; i++) {
+            Doctor doctor = doctors[i];
+            if(doctor == doctorToDelete){
+                if (size - 1 - i >= 0) System.arraycopy(doctors, i + 1, doctors, i, size - 1 - i);
+                break;
+            }
+        }
+        size--;
+    }
 }

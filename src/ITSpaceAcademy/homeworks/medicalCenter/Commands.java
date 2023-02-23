@@ -17,7 +17,6 @@ public interface Commands {
         System.out.println("Please input " + DELETE_DOCTOR_BY_ID + " to delete doctor by id");
         System.out.println("Please input " + CHANGE_DOCTOR_DATA_BY_ID + " change doctor data by id");
         System.out.println("Please input " + ADD_PATIENT + " to add patient");
-
         System.out.println("Please input " + PRINT_ALL_PATIENTS_BY_DOCTOR + " to print all  patients by doctor");
         System.out.println("Please input " + PRINT_TODAYS_PATIENTS + " to print today's patients");
     }

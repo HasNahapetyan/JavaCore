@@ -1,5 +1,7 @@
 package ITSpaceAcademy.homeworks.medicalCenter.model;
 
+import ITSpaceAcademy.homeworks.medicalCenter.util.DateUtil;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -57,13 +59,13 @@ public class Patient extends Person{
     @Override
     public String toString() {
         return "Patient{" +
-                "doctor=" + doctor +
-                ", date=" + registerDate +
-                ", time=" + registerTime +
-                ", id='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
+                ", doctor=" + doctor +
+                ", date=" + DateUtil.dayDateToString(registerDate) +
+                ", time=" + DateUtil.timeDateToString(registerTime) +
                 '}';
     }
 }
