@@ -9,7 +9,7 @@ import ITSpaceAcademy.homeworks.medicalCenter.util.DateUtil;
 import java.util.Date;
 import java.util.Scanner;
 
-public class medicalCenterDemo implements Commands, CommandsToChangeDoctor{
+public class MedicalCenterDemo implements Commands, CommandsToChangeDoctor{
 
     static Scanner scanner = new Scanner(System.in);
     static DoctorsStorage doctorsStorage = new DoctorsStorage();
