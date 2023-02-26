@@ -1,13 +1,15 @@
 package ITSpaceAcademy.homeworks.medicalCenter.model;
 
+import ITSpaceAcademy.homeworks.medicalCenter.ProfessionEnum;
+
 import java.util.Objects;
 
 public class Doctor extends Person{
 
     private String email;
-    private String profession;
+    private ProfessionEnum profession;
 
-    public Doctor(String id, String name, String surname, String phone, String email, String profession) {
+    public Doctor(String id, String name, String surname, String phone, String email, ProfessionEnum profession) {
         super(id, name, surname, phone);
         this.email = email;
         this.profession = profession;
@@ -21,11 +23,11 @@ public class Doctor extends Person{
         this.email = email;
     }
 
-    public String getProfession() {
+    public ProfessionEnum getProfession() {
         return profession;
     }
 
-    public void setProfession(String profession) {
+    public void setProfession(ProfessionEnum profession) {
         this.profession = profession;
     }
 

@@ -2,7 +2,7 @@ package ITSpaceAcademy.homeworks.medicalCenter.model;
 
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
     protected String id;
     protected String name;
     protected String surname;

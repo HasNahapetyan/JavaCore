@@ -5,41 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtil {
-    static final SimpleDateFormat DAY_FORMATTER = new SimpleDateFormat("dd-MM-yyyy");
-    static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("HH:mm");
+    static final SimpleDateFormat SDF = new SimpleDateFormat("dd-MM-yyyy3");
+    static final SimpleDateFormat SDTF = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
-    static public String dayDateToString(Date date){
-        if (date == null) {
-            return null;
-        }
-        return DAY_FORMATTER.format(date);
+    public static boolean isSameDay(Date date1, Date date2) {
+        return SDF.format(date1).equals(SDF.format(date2));
     }
-    static public Date stringToDayDate(String dayString){
-        if (dayString == null) {
-            return null;
-        }
-        try {
-            return DAY_FORMATTER.parse(dayString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
+
+    public static String dateTimeToString(Date date) {
+        return SDTF.format(date);
     }
-    static public String timeDateToString(Date time){
-        if (time == null) {
-            return null;
-        }
-        return TIME_FORMATTER.format(time);
-    }
-    static public Date stringToTimeDate(String timeString){
-        if (timeString == null) {
-            return null;
-        }
-        try {
-            return TIME_FORMATTER.parse(timeString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
+
+    static public Date stringToDateTime(String dateString) throws ParseException {
+        return SDTF.parse(dateString);
     }
 }

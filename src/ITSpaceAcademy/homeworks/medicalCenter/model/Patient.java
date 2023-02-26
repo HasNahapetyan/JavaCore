@@ -8,14 +8,12 @@ import java.util.Objects;
 public class Patient extends Person{
 
     private Doctor doctor;
-    private Date registerDate;
-    private Date registerTime;
+    private Date registerDateTime;
 
-    public Patient(String id, String name, String surname, String phone, Doctor doctor, Date date, Date time) {
+    public Patient(String id, String name, String surname, String phone, Doctor doctor, Date date) {
         super(id, name, surname, phone);
         this.doctor = doctor;
-        this.registerDate = date;
-        this.registerTime = time;
+        this.registerDateTime = date;
     }
 
     public Doctor getDoctor() {
@@ -26,20 +24,12 @@ public class Patient extends Person{
         this.doctor = doctor;
     }
 
-    public Date getRegisterDate() {
-        return registerDate;
+    public Date getRegisterDateTime() {
+        return registerDateTime;
     }
 
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    public Date getRegisterTime() {
-        return registerTime;
-    }
-
-    public void setRegisterTime(Date registerTime) {
-        this.registerTime = registerTime;
+    public void setRegisterDateTime(Date registerDateTime) {
+        this.registerDateTime = registerDateTime;
     }
 
     @Override
@@ -48,12 +38,12 @@ public class Patient extends Person{
         if (!(o instanceof Patient)) return false;
         if (!super.equals(o)) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(getDoctor(), patient.getDoctor()) && Objects.equals(getRegisterDate(), patient.getRegisterDate()) && Objects.equals(getRegisterTime(), patient.getRegisterTime());
+        return Objects.equals(getDoctor(), patient.getDoctor()) && Objects.equals(getRegisterDateTime(), patient.getRegisterDateTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getDoctor(), getRegisterDate(), getRegisterTime());
+        return Objects.hash(super.hashCode(), getDoctor(), getRegisterDateTime());
     }
 
     @Override
@@ -64,8 +54,7 @@ public class Patient extends Person{
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", doctor=" + doctor +
-                ", date=" + DateUtil.dayDateToString(registerDate) +
-                ", time=" + DateUtil.timeDateToString(registerTime) +
+                ", date=" + DateUtil.dateTimeToString(registerDateTime) +
                 '}';
     }
 }
