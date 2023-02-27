@@ -18,7 +18,7 @@ public class MedicalCenterDemo implements Commands, CommandsToChangeDoctor{
     public static void main(String[] args) {
 
         Doctor doctor = new Doctor("dr001","Doctor", "Doctoryan",
-                "123456789", "doctor.@gmail.com",ProfessionEnum.EMERGENCY_PHYSICIANS);
+                "123456789", "doctor@gmail.com",ProfessionEnum.EMERGENCY_PHYSICIANS);
         personsStorage.add(doctor);
 
         try {
@@ -96,9 +96,23 @@ public class MedicalCenterDemo implements Commands, CommandsToChangeDoctor{
 
     private static void searchDoctorByProfession() {
         personsStorage.printDoctors();
-        System.out.println("Please input doctor profession.");
-        String profession = scanner.nextLine();
-        personsStorage.printDoctorsByProfession(profession);
+        System.out.println("Please input doctor profession from the list.");
+        ProfessionEnum[] professions = ProfessionEnum.values();
+        for (ProfessionEnum profession:
+                professions) {
+            System.out.println(profession);
+        }
+
+        String professionStr = scanner.nextLine();
+
+        ProfessionEnum profession;
+        try{
+            profession = ProfessionEnum.valueOf(professionStr);
+            personsStorage.printDoctorsByProfession(profession);
+
+        }catch (RuntimeException e){
+            System.out.println("Wrong profession input, please try again");
+        }
     }
 
     private static void deleteDoctorById() {

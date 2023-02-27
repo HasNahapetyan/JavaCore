@@ -1,5 +1,6 @@
 package ITSpaceAcademy.homeworks.medicalCenter.storage;
 
+import ITSpaceAcademy.homeworks.medicalCenter.ProfessionEnum;
 import ITSpaceAcademy.homeworks.medicalCenter.model.Doctor;
 import ITSpaceAcademy.homeworks.medicalCenter.model.Patient;
 import ITSpaceAcademy.homeworks.medicalCenter.model.Person;
@@ -56,7 +57,7 @@ public class PersonStorage {
         return null;
     }
 
-    public void printDoctorsByProfession(String profession) {
+    public void printDoctorsByProfession(ProfessionEnum profession) {
         for (int i = 0; i < size; i++) {
             Person person = persons[i];
             if(person instanceof Doctor) {
