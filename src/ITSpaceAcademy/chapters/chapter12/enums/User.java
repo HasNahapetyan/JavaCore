@@ -1,4 +1,4 @@
-package ITSpaceAcademy.chapters.chapter12;
+package ITSpaceAcademy.chapters.chapter12.enums;
 
 public class User {
     String name;
