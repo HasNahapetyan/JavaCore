@@ -15,24 +15,18 @@ public class CollectionExample2 {
     }
 
     private static void inputTenNamesAndPrintSorted() {
-        Set<String> namesSorted = new TreeSet<>();
         System.out.println("Please input 10 names");
         String newNames = scanner.nextLine();
         String[] namesArr = newNames.split(",");
-        for (int i = 0; i < 10; i++) {
-            namesSorted.add(namesArr[i]);
-        }
+        Set<String> namesSorted = new TreeSet<>(Arrays.asList(namesArr).subList(0, 10));
         System.out.println(namesSorted);
     }
 
     private static void inputFiveNamesAndPrintWithoutDuplicates() {
-        List<String> namesList = new ArrayList<>();
         System.out.println("Please input 5 names");
         String newNames = scanner.nextLine();
         String[] namesArr = newNames.split(",");
-        for (int i = 0; i < 5; i++) {
-            namesList.add(namesArr[i]);
-        }
+        List<String> namesList = new ArrayList<>(Arrays.asList(namesArr).subList(0, 5));
         Set<String> namesSet = new LinkedHashSet<>(namesList);
         System.out.println(namesSet);
     }

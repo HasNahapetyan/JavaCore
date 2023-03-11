@@ -53,10 +53,13 @@ public class CollectionExample1 {
         }catch (IndexOutOfBoundsException e){
             System.err.println("Wrong index. Please try again");
         }
+
+//  or
 //        if(index>-1 && index < namesList.size()){
 //            namesList.add(index, name);
 //        }else{
 //            System.err.println("Wrong index. Please try again");
 //        }
+
     }
 }
