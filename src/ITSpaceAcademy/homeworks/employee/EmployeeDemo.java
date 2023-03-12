@@ -93,9 +93,9 @@ public class EmployeeDemo implements Commands {
         if (companyById == null) {
             Company company = new Company(companyId, companyData[1], companyData[2], companyData[3], 0);
             COMPANY_STORAGE.add(company);
-            System.out.println("Company was added!");
+            System.out.println("ImmutableCompany was added!");
         }else{
-            System.out.println("Company with " + companyId + " is=d already exists!!!");
+            System.out.println("ImmutableCompany with " + companyId + " is=d already exists!!!");
         }
 
     }
@@ -142,7 +142,7 @@ public class EmployeeDemo implements Commands {
         if (companyById != null) {
             EMPLOYEE_STORAGE.searchEmployeesByCompany(companyId);
         }else{
-            System.out.println("Company does not exist!");
+            System.out.println("ImmutableCompany does not exist!");
         }
     }
 
