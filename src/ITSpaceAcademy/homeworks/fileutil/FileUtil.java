@@ -34,7 +34,7 @@ public class FileUtil {
 /*
         src/ITSpaceAcademy/chapters/chapter13
  */
-//        printSizeOfPackage();
+        printSizeOfPackage();
 
 
 
@@ -44,7 +44,7 @@ public class FileUtil {
         Hello!HereCouldBeSomeMeaningfulContent
 
         */
-        createFileWithContent();
+        //createFileWithContent();
 
 
     }
@@ -126,19 +126,19 @@ public class FileUtil {
     static void printSizeOfPackage() {
         String path = scanner.nextLine();
         File fileDir = new File(path);
-
-
         File[] files;
         if(fileDir.isDirectory()){
             files = fileDir.listFiles();
             assert files != null;
             int totalSize = 0;
             for (File file : files) {
-                try {
-                    totalSize += Files.size(Paths.get(fileDir + File.separator + file.getName()));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                totalSize += file.length();
+
+//                try {
+//                    totalSize += Files.size(Paths.get(fileDir + File.separator + file.getName()));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
             System.out.println(totalSize);
         }
