@@ -72,6 +72,7 @@ public class FileExample {
             //file.delete();
         }
 
+
         //file.deleteOnExit();//կջնջի երբ ծրագիրը պրծնի
 
         System.out.println("last");

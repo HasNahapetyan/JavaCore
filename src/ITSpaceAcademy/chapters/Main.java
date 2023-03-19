@@ -15,6 +15,11 @@ public class Main {
 //        label: operators to eliminate the error;
 
 
+        Object[] arr = new Object[10];
+        arr[0] = "blah";
+        int f =  6;
+        arr[1] = f;
+
     }
 
     private static boolean somef() {

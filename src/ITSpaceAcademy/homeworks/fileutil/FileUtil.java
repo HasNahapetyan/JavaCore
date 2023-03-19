@@ -56,9 +56,26 @@ public class FileUtil {
     static void fileSearch() {
         String path = scanner.nextLine();
         String fileName = scanner.next();
-        File file = new File(path + File.separator + fileName);
+        File folderFile = new File(path);
+        if(!folderFile.isDirectory()){
+            System.out.println("Wrong folder path");
+            return;
+        }
+        File[] listOfFiles = folderFile.listFiles();
+        boolean isFound = false;
+        for (File file :
+                listOfFiles) {
+            if(file.isFile() && file.getName().contains(fileName)){
+                isFound = true;
+                break;
+            }
+        }
+        System.out.println(isFound);
 
-        System.out.println(file.exists());
+
+//        File file = new File(path + File.separator + fileName);
+//
+//        System.out.println(file.exists());
     }
 
     //այս մեթոդը պետք է սքաններով վերցնի երկու string.
@@ -69,7 +86,12 @@ public class FileUtil {
     static void contentSearch() {
         String path = scanner.nextLine();
         String keyword = scanner.next();
-        File fileDir = new File(path);
+        File folderFile = new File(path);
+        if(!folderFile.isDirectory()){
+            System.out.println("Wrong folder path");
+            return;
+        }
+
         FilenameFilter filter = new FilenameFilter() {
             private String ext = ".txt";
 
@@ -80,24 +102,22 @@ public class FileUtil {
             }
         };
 
-        File[] files;
-        if(fileDir.isDirectory()){
-            files = fileDir.listFiles(filter);
-            assert files != null;
-            for (File file : files) {
-                try (BufferedReader inputStream = new BufferedReader(new FileReader(file))) {
-                    String line = "";
-                    while ((line = inputStream.readLine()) != null) {
-                        if(line.contains(keyword)){
-                            System.out.println(file.getName());
-                            break;
-                        }
+        File[] files = folderFile.listFiles(filter);
+        assert files != null;
+        for (File file : files) {
+            try (BufferedReader inputStream = new BufferedReader(new FileReader(file))) {
+                String line = null;
+                while ((line = inputStream.readLine()) != null) {
+                    if(line.contains(keyword)){
+                        System.out.println(file.getName());
+                        break;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+
     }
 
     //այս մեթոդը պետք է սքաններով վերցնի երկու string.
@@ -108,12 +128,18 @@ public class FileUtil {
         String txtPath = scanner.nextLine();
         String keyword = scanner.next();
         File file = new File(txtPath);
+        if(!file.exists() || !file.getName().endsWith(".txt")){
+            System.out.println("Wrong file or file path.");
+            return;
+        }
         try (BufferedReader inputStream = new BufferedReader(new FileReader(file))) {
-            String line = "";
+            String line = null;
+            int lineNumber = 1;
             while ((line = inputStream.readLine()) != null) {
                 if(line.contains(keyword)){
-                    System.out.println(line);
+                    System.out.println(lineNumber + " . " + line);
                 }
+                ++lineNumber;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -126,22 +152,23 @@ public class FileUtil {
     static void printSizeOfPackage() {
         String path = scanner.nextLine();
         File fileDir = new File(path);
-        File[] files;
-        if(fileDir.isDirectory()){
-            files = fileDir.listFiles();
-            assert files != null;
-            int totalSize = 0;
-            for (File file : files) {
-                totalSize += file.length();
-
+        if(!fileDir.isDirectory()) {
+            System.out.println("Wrong folder path");
+            return;
+        }
+        File[] files = fileDir.listFiles();
+        assert files != null;
+        long totalSize = 0;
+        for (File file : files) {
+            totalSize += file.length();
 //                try {
 //                    totalSize += Files.size(Paths.get(fileDir + File.separator + file.getName()));
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }
             }
-            System.out.println(totalSize);
-        }
+        System.out.println(totalSize);
+
     }
 
     //այս մեթոդը պետք է սքաններով վերցնի երեք string.
@@ -153,7 +180,12 @@ public class FileUtil {
         String path = scanner.nextLine();
         String fileName = scanner.next();
         String content = scanner.next();
-        File file = new File(path + File.separator + fileName);
+        File fileFolder = new File(path );
+        if(!fileFolder.isDirectory()) {
+            System.out.println("Wrong folder path");
+            return;
+        }
+        File file = new File(fileFolder, fileName);
         if(file.exists()){
             System.out.println("file exists");
         }else{
